@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "495106422823",
+    "project_id": "task-d865d",
+    "storage_bucket": "task-d865d.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:495106422823:android:d8a55ae27d5b5a13e17602",
+        "android_client_info": {
+          "package_name": "com.example.coinquiz"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBC2sjeBoyFLS4TOIOUCdhuEt2ugriM9I4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

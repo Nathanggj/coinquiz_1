@@ -1,0 +1,39 @@
+workflows:
+  ios-workflow:
+    name: iOS Build Workflow
+    max_build_duration: 120
+    instance_type: mac_mini_m2
+
+    environment:
+      flutter: stable
+      xcode: latest
+      cocoapods: default
+      ruby: 3.1.4
+
+    scripts:
+      - name: Update Ruby and install CocoaPods
+        script: |
+          brew install ruby
+          export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+          ruby -v
+          gem install bundler
+          gem install cocoapods -v 1.12.0
+          pod setup
+          git config --global advice.detachedHead false
+
+      - name: Install dependencies
+        script: |
+          flutter clean
+          flutter pub get
+          cd ios
+          rm -rf Pods
+          rm -f Podfile.lock
+          pod repo update
+          pod install --repo-update
+          cd ..
+
+      - name: Build iOS
+        script: flutter build ios --release --no-codesign
+
+    artifacts:
+      - build/ios/ipa/*.ipa
